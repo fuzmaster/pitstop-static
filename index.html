@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pitstop – Home &amp; Car Maintenance Log</title>
+  <meta name="description" content="Log and track maintenance for your vehicles and home systems." />
+  <!-- Instruct the browser that this site supports dark and light color schemes -->
+  <meta name="color-scheme" content="light dark" />
+  <!-- The single bundled stylesheet for the site -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Progressive Web App manifest (optional) -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <!-- App icon for browsers and PWA installs -->
+  <link rel="icon" href="icon-192.png" sizes="192x192" />
+</head>
+<body>
+  <!-- Application bar with title and quick theme toggle -->
+  <header class="app-bar">
+    <h1 class="app-title">Pitstop</h1>
+    <button id="quick-theme-toggle" class="icon-button" aria-label="Toggle theme"></button>
+  </header>
+
+  <!-- Primary navigation for switching between top‑level sections. -->
+  <nav class="tab-nav" role="tablist">
+    <button class="tab-button active" data-target="dashboard" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+    <button class="tab-button" data-target="assets" role="tab" aria-controls="assets" aria-selected="false">Assets</button>
+    <button class="tab-button" data-target="documents" role="tab" aria-controls="documents" aria-selected="false">Documents</button>
+    <button class="tab-button" data-target="settings" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
+  </nav>
+
+  <!-- Main content area. Each section corresponds to a tab in the nav above. Only the active
+       section is displayed at a time. -->
+  <main>
+    <section id="dashboard" class="tab-content active" role="tabpanel" aria-labelledby="dashboard-tab">
+      <h2>Dashboard</h2>
+      <div class="section">
+        <h3>Due soon</h3>
+        <ul class="list">
+          <li class="list-item">Oil change – 500 miles remaining</li>
+          <li class="list-item">HVAC filter – 2 weeks remaining</li>
+          <li class="list-item">Smoke detector battery – 1 month remaining</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h3>Recent service</h3>
+        <ul class="list">
+          <li class="list-item">Tire rotation – Jul 15, 2025</li>
+          <li class="list-item">Roof inspection – Jun 30, 2025</li>
+          <li class="list-item">Water heater flush – May 10, 2025</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="assets" class="tab-content" role="tabpanel" aria-labelledby="assets-tab">
+      <h2>Assets</h2>
+      <div class="section">
+        <h3>Vehicles</h3>
+        <div class="card-grid">
+          <div class="card asset-card" tabindex="0">
+            <h4>Toyota Camry</h4>
+            <p>2018 Sedan</p>
+          </div>
+          <div class="card asset-card" tabindex="0">
+            <h4>Honda CR‑V</h4>
+            <p>2022 SUV</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Home systems</h3>
+        <div class="card-grid">
+          <div class="card asset-card" tabindex="0">
+            <h4>HVAC system</h4>
+            <p>Installed 2020</p>
+          </div>
+          <div class="card asset-card" tabindex="0">
+            <h4>Water heater</h4>
+            <p>50 gallon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="documents" class="tab-content" role="tabpanel" aria-labelledby="documents-tab">
+      <h2>Documents</h2>
+      <div class="card">
+        <p>Upload your receipts and manuals to keep everything in one place.</p>
+        <button class="upload-btn" disabled aria-disabled="true">Upload (coming soon)</button>
+      </div>
+    </section>
+
+    <section id="settings" class="tab-content" role="tabpanel" aria-labelledby="settings-tab">
+      <h2>Settings</h2>
+      <div class="section">
+        <label for="units-select">Units:</label>
+        <select id="units-select">
+          <option value="miles">Miles</option>
+          <option value="kilometers">Kilometers</option>
+        </select>
+      </div>
+      <div class="section">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+          <option value="auto">Auto</option>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+    </section>
+  </main>
+
+  <!-- Container for toast messages. Toasts are announced here to screen readers. -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- The single bundled script that powers routing, theming and toast behavior. -->
+  <script src="app.js"></script>
+</body>
+</html>
